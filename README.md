@@ -1,35 +1,61 @@
-```markdown
-# Online Exam System based on TCP Socket Programming
+好的，以下是带表情符号和分隔符的纯文本版本，可以直接复制粘贴使用：
 
-## Project Overview
+---
 
-This is a multi-role online examination system built with Java TCP Socket programming. The system supports three types of users — Administrators, Students, and Graders — each with distinct functional permissions. It implements a complete exam workflow including question bank management, automated test paper generation, real-time exam taking with auto-save, objective question auto-grading, subjective question manual grading, and score statistics.
+================================================================================
+📚 Online Exam System based on TCP Socket Programming
+================================================================================
 
-This project was developed as a coursework assignment for the Network Programming course.
+📌 Project Overview
 
-## Roles & Features
+This is a multi-role online examination system built with Java TCP Socket 
+programming. The system supports three types of users — Administrators, Students, 
+and Graders — each with distinct functional permissions. It implements a complete 
+exam workflow including question bank management, automated test paper generation, 
+real-time exam taking with auto-save, objective question auto-grading, subjective 
+question manual grading, and score statistics.
 
-| Role | Features |
-|------|----------|
-| Administrator | Add questions to question bank; Create and publish exam papers (manual or auto-generated); View and export score statistics |
-| Student | Take exams; Auto-save answers during exam; Submit papers; View objective question scores immediately |
-| Grader | View pending grading list; Grade subjective questions (with scores and comments); Auto-calculate total scores |
+This project was developed as a coursework assignment for the Network Programming 
+course.
 
-## System Architecture
+================================================================================
+👥 Roles & Features
+================================================================================
 
-- Client-Server Model: Built on TCP/IP using Java Socket and ServerSocket
-- Database: MySQL for persistent storage of users, questions, papers, and answer records
-- Design Patterns: Object-oriented design with layered architecture (UI -> Controller -> Service -> DAO)
+👑 Administrator:
+   ✅ Add questions to question bank
+   ✅ Create and publish exam papers (manual or auto-generated)
+   ✅ View and export score statistics
 
-### UML Diagrams (included in report)
+🎓 Student:
+   ✅ Take exams
+   ✅ Auto-save answers during exam
+   ✅ Submit papers
+   ✅ View objective question scores immediately
 
-- Use Case Diagrams
-- Sequence Diagrams
-- Class Diagrams
+📝 Grader:
+   ✅ View pending grading list
+   ✅ Grade subjective questions (with scores and comments)
+   ✅ Auto-calculate total scores
 
-## Project Structure
+================================================================================
+🏗️ System Architecture
+================================================================================
 
-```
+   🔹 Client-Server Model: Built on TCP/IP using Java Socket and ServerSocket
+   🔹 Database: MySQL for persistent storage of users, questions, papers, etc.
+   🔹 Design Patterns: Object-oriented design with layered architecture
+      (UI -> Controller -> Service -> DAO)
+
+📊 UML Diagrams (included in report):
+   🔸 Use Case Diagrams
+   🔸 Sequence Diagrams
+   🔸 Class Diagrams
+
+================================================================================
+📁 Project Structure
+================================================================================
+
 Online-Exam-System-TCP/
 ├── src/
 │   ├── client/            # Client-side UI and controllers
@@ -43,100 +69,115 @@ Online-Exam-System-TCP/
 ├── exam_user.sql          # Database schema and sample data
 ├── README.md
 └── .vscode/               # VS Code configuration
-```
 
-## Database Schema (Key Tables)
+================================================================================
+🗄️ Database Schema (Key Tables)
+================================================================================
 
-| Table | Description |
-|-------|-------------|
-| USERS | User accounts (student/admin/grader) |
-| QUESTIONS | Question bank with types (single choice, multiple choice, fill-in, essay) |
-| EXAM_PAPERS | Exam paper metadata (course, duration, total score, status) |
-| PAPER_QUESTIONS | Many-to-many relationship between papers and questions |
-| ANSWER_SHEETS | Student answer records for each exam attempt |
-| ANSWER_DETAILS | Detailed answers for each question in a sheet |
+   Table              Description
+   ────────────────────────────────────────────────────────────────────────────
+   USERS              User accounts (student/admin/grader)
+   QUESTIONS          Question bank (single choice, multiple choice, fill-in, essay)
+   EXAM_PAPERS        Exam paper metadata (course, duration, total score, status)
+   PAPER_QUESTIONS    Many-to-many relationship between papers and questions
+   ANSWER_SHEETS      Student answer records for each exam attempt
+   ANSWER_DETAILS     Detailed answers for each question in a sheet
 
-## Quick Start
+================================================================================
+🚀 Quick Start
+================================================================================
 
-### Prerequisites
+📋 Prerequisites:
+   ⚡ Java 8 or higher
+   ⚡ MySQL 5.7 or higher
+   ⚡ Eclipse / IntelliJ IDEA (recommended)
 
-- Java 8 or higher
-- MySQL 5.7 or higher
-- Eclipse / IntelliJ IDEA (recommended)
+🛠️ Setup Steps:
 
-### Setup
+   1️⃣ Clone the repository
+      git clone https://github.com/yourusername/Online-Exam-System-TCP.git
 
-**1. Clone the repository**
+   2️⃣ Import the database
+      mysql -u root -p < exam_user.sql
 
-```
-git clone https://github.com/yourusername/Online-Exam-System-TCP.git
-```
+   3️⃣ Configure database connection
+      Update JDBC connection settings in src/util/DBUtil.java
 
-**2. Import the database**
+   4️⃣ Run the server
+      Start com.server.ExamServer.java
 
-```
-mysql -u root -p < exam_user.sql
-```
+   5️⃣ Run the client
+      Start com.client.ExamClient.java
 
-**3. Configure database connection**
+🔑 Default Accounts:
 
-Update JDBC connection settings in `src/util/DBUtil.java`
+   Role               Username         Password
+   ────────────────────────────────────────────────────────────────────────────
+   👑 Administrator   admin1           admin123
+   🎓 Student         student1         123456
+   📝 Grader          grader1          grader123
 
-**4. Run the server**
+================================================================================
+📸 Sample Workflow
+================================================================================
 
-Start `com.server.ExamServer.java`
+1️⃣ Admin Login & Question Addition
+   👑 Login as admin -> Select "Add Question" -> Enter question details 
+      (type, stem, options, answer, knowledge point, difficulty, score) 
+      -> Question saved to bank. ✅
 
-**5. Run the client**
+2️⃣ Auto-Generate & Publish Paper
+   📄 Set paper strategy (e.g., 3 single-choice, 2 fill-in, 1 multiple-choice, 
+      1 essay) -> System automatically retrieves questions from bank 
+      -> Preview generated paper -> Publish. 🚀
 
-Start `com.client.ExamClient.java`
+3️⃣ Student Takes Exam
+   🎓 Login as student -> Select a published paper -> Answer questions sequentially 
+      -> Answers auto-saved on each switch -> Submit -> Objective questions 
+      graded automatically. ✅
 
-**Default Accounts:**
+4️⃣ Grader Grades Subjective Questions
+   📝 Login as grader -> View pending papers -> Grade each essay question 
+      with score and comment -> System auto-calculates total score. 📊
 
-| Role | Username | Password |
-|------|----------|----------|
-| Administrator | admin1 | admin123 |
-| Student | student1 | 123456 |
-| Grader | grader1 | grader123 |
+================================================================================
+💻 Core Technologies
+================================================================================
 
-## Sample Workflow
+   🔹 Java SE (Socket, ServerSocket, I/O streams, multithreading)
+   🔹 TCP/IP Protocol - reliable connection-oriented communication
+   🔹 MySQL - data persistence
+   🔹 JDBC - database connectivity
+   🔹 Object-Oriented Design - inheritance, polymorphism, encapsulation
 
-**1. Admin Login & Question Addition**
+================================================================================
+📚 What I Learned
+================================================================================
 
-Login as admin -> Select "Add Question" -> Enter question details (type, stem, options, answer, knowledge point, difficulty, score) -> Question saved to bank.
+   ✅ Mastered TCP socket programming with Java (Socket, ServerSocket, 
+      InputStream/OutputStream)
 
-**2. Auto-Generate & Publish Paper**
+   ✅ Practiced object-oriented analysis and design using UML (use case, 
+      sequence, and class diagrams)
 
-Set paper strategy (e.g., 3 single-choice, 2 fill-in, 1 multiple-choice, 1 essay) -> System automatically retrieves questions from bank -> Preview generated paper -> Publish.
+   ✅ Implemented multi-role permission management and data consistency 
+      in a client-server system
 
-**3. Student Takes Exam**
+   ✅ Designed auto-save mechanisms and objective question auto-grading logic
 
-Login as student -> Select a published paper -> Answer questions sequentially -> Answers auto-saved on each switch -> Submit -> Objective questions graded automatically.
+   ✅ Gained hands-on experience with MySQL-JDBC integration and transaction 
+      management
 
-**4. Grader Grades Subjective Questions**
-
-Login as grader -> View pending papers -> Grade each essay question with score and comment -> System auto-calculates total score.
-
-## Core Technologies
-
-- Java SE (Socket, ServerSocket, I/O streams, multithreading)
-- TCP/IP Protocol - reliable connection-oriented communication
-- MySQL - data persistence
-- JDBC - database connectivity
-- Object-Oriented Design - inheritance, polymorphism, encapsulation
-
-## What I Learned
-
-- Mastered TCP socket programming with Java (Socket, ServerSocket, InputStream/OutputStream)
-- Practiced object-oriented analysis and design using UML (use case, sequence, and class diagrams)
-- Implemented multi-role permission management and data consistency in a client-server system
-- Designed auto-save mechanisms and objective question auto-grading logic
-- Gained hands-on experience with MySQL-JDBC integration and transaction management
-
-## Contact
+================================================================================
+📧 Contact
+================================================================================
 
 For questions or suggestions, please open an issue or contact the repository owner.
 
-## License
+================================================================================
+📜 License
+================================================================================
 
-This project is for educational purposes only.
-```
+This project is for educational purposes only. 📖
+
+================================================================================
