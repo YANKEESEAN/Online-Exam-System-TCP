@@ -1,4 +1,3 @@
-```markdown
 # 📚 Online Exam System based on TCP Socket Programming
 
 ## 📌 Project Overview
@@ -144,4 +143,3 @@ For questions or suggestions, please open an issue or contact the repository own
 
 ## 📜 License
 This project is for educational purposes only.
-```
